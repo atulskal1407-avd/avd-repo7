@@ -17,6 +17,7 @@ jobs:
       - name: Check files are present
         run: ls -la
       - name: Run extract_data.py
+        working-directory: .
         run: python extract_data.py
         
   transform-data-job:
@@ -32,6 +33,7 @@ jobs:
       - name: Check files are present
         run: ls -la
       - name: Run transform_data.py
+        working-directory: .
         run: python transform_data.py
         
   load-data-job:
@@ -47,4 +49,5 @@ jobs:
       - name: Check files are present
         run: ls -la
       - name: Run load_data.py
+        working-directory: .
         run: python load_data.py
