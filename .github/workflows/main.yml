@@ -1,20 +1,45 @@
-name : etl pipeline
-on:
-    push:
-        branches:
-            - main
+ name: etl pipeline
+ on:
+  push:
+    branches:
+      - main
 
-jobs:
-    extract-data-job:
-        runs-on :ubuntu-latest
-        steps:
-
-            -name:Checkout Code
-             uses:actions/checkout@v2
-             name :Run extract_data.
-             run:python extract_data.py
-    tansform-data-job:
-             runs-on :ubuntu-latest    
+ jobs:
+  extract-data-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Run extract_data.py
+        run: python extract_data.py
+        
+  transform-data-job:
+    needs: extract-data-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Run transform_data.py
+        run: python transform_data.py
+        
+  load-data-job:
+    needs: transform-data-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Run load_data.py
+        run: python load_data.py
     
-    load-data-job: 
-             runs-on :ubuntu-latest            
