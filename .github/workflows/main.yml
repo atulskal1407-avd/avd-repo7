@@ -1,4 +1,4 @@
-name: ETL Pipeline
+name: ETL Pipeline Flow
 
 on:
   push:
