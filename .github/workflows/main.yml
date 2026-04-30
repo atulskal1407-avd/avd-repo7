@@ -22,7 +22,7 @@ jobs:
           pip install pandas
 
       - name: Run extract_data.py
-        run: python extract_data.py
+        run: python extract_data.py 
 
       - name: Upload Raw Data
         uses: actions/upload-artifact@v4
@@ -49,3 +49,32 @@ jobs:
 
       - name: Download Raw Data
         uses: actions/download-artifact@v4
+        with:
+          name: raw-data
+
+      - name: Run transform_data.py
+        run: python transform_data.py
+
+      - name: Upload Transformed Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: transformed-data
+          path: transformed_data.csv
+
+  load-data-job:
+    needs: transform-data-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download Transformed Data
+        uses: actions/download-artifact@v4
+        with:
+          name: transformed-data
+
+      - name: Run load_data.py
+        run: python load_data.py
+
+      - name: print
+        run: echo "hello"
