@@ -1,0 +1,15 @@
+{
+	"name": "adfforgithug",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "98283c20-9c44-4176-8ba8-5d0ccbbf0f5f",
+		"tenantId": "c1154c5d-888d-4ba1-b1ee-f87a37e06401"
+	}
+}
