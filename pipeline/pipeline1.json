@@ -21,10 +21,18 @@
 			"x": {
 				"type": "string",
 				"defaultValue": "10"
+			},
+			"y": {
+				"type": "string",
+				"defaultValue": "10"
 			}
 		},
 		"variables": {
 			"x": {
+				"type": "String",
+				"defaultValue": "10"
+			},
+			"y": {
 				"type": "String",
 				"defaultValue": "10"
 			}
