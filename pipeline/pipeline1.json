@@ -3,21 +3,32 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "x",
-				"description": "10",
+				"name": "Set variable1",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
-					"secureOutput": true,
+					"secureOutput": false,
 					"secureInput": false
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "",
-					"value": ""
+					"variableName": "x",
+					"value": "10"
 				}
 			}
 		],
+		"parameters": {
+			"x": {
+				"type": "string",
+				"defaultValue": "10"
+			}
+		},
+		"variables": {
+			"x": {
+				"type": "String",
+				"defaultValue": "10"
+			}
+		},
 		"annotations": []
 	}
 }
